@@ -1,0 +1,14 @@
+{
+  "name": "everyoneplaysthesamesong-site",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/transformer-remark": "^0.6.1",
+    "@noxify/gridsome-source-git": "^2.0.1",
+    "gridsome": "^0.7.0"
+  }
+}
