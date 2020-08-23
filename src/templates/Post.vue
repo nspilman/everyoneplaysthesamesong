@@ -50,7 +50,7 @@ post:post(path:$path)
 </page-query>
 <static-query>
 query {
-  posts: allPost(filter: { published: { eq: true }}, sortBy: "date", order: ASC) {
+  posts: allPost(filter: { published: { eq: true }, tags :{contains:"everyonePlaysTheSameSong"}}, sortBy: "date", order: ASC) {
     edges {
       node {
         id
@@ -112,6 +112,10 @@ export default {
 };
 </script>
 <style>
+#home{
+    color:black;
+}
+
 #post-main{
     margin-top: 4em;
     background-color: white;
@@ -121,7 +125,6 @@ export default {
     text-align: left;
     display:flex;
     flex-direction: column;
-    align-items: center;
 }
 #post-body > p > img{
     max-width:100%;
