@@ -30,7 +30,7 @@ for post in blogposts:
     except:
         pass
     if eptss == False:
-        subprocess.Popen(['rm',blogFolder}+'/'+post]).communicate()
+        subprocess.Popen(['rm',blogFolder+'/'+post]).communicate()
 
 subprocess.Popen(['npm','run','build']).communicate()
 
