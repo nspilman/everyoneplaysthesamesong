@@ -18,7 +18,7 @@ subprocess.Popen([*removeFolder,folderName]).communicate()
 
 blogposts = os.listdir(blogFolder)
 for post in blogposts:
-    postbody = open(f"{blogFolder}/{post}")
+    postbody = open(blogFolder +"/" + post)
     lines = [line.strip() for line in postbody]
     eptss = False
     try:
@@ -30,7 +30,7 @@ for post in blogposts:
     except:
         pass
     if eptss == False:
-        subprocess.Popen(['rm',f"{blogFolder}/{post}"]).communicate()
+        subprocess.Popen(['rm',blogFolder}+'/'+post]).communicate()
 
 subprocess.Popen(['npm','run','build']).communicate()
 
