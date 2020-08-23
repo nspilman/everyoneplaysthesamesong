@@ -1,10 +1,8 @@
 
 <template>
   <Layout>
-    <article id="home" class="panel special">
-    <div id="post-main">
-      <article class="post">
-        <header>
+    <section id="content" class="default">
+        <header class="major">
             <h1>{{$page.post.title}}</h1>
             <p>{{$page.post.description}}</p>
             <time class="published" datetime="2015-11-01">{{formattedDateString($page.post.date)}}</time>
@@ -12,8 +10,7 @@
         <!-- <span class="image featured">
           <g-image :src="$page.post.image" class="p5" />
         </span> -->
-        <div id="post-body" v-html="$page.post.content" />
-      </article>
+        <div id="content" v-html="$page.post.content" />
       <!-- <BlogCommmentWrapper postId = {post.id} draft = {post.frontmatter.draft}/> -->
       <ul
       :style="{
@@ -31,8 +28,7 @@
         <g-link :to="nextPost.path"> {{nextPost.title}} </g-link>
       </li>
     </ul>
-    </div>
-    </article>
+    </section>
   </Layout>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div id="main">
     <slot/>
   </div>
 </template>
@@ -14,6 +14,6 @@ query {
 
 <style>
 #main {
-  padding-top:1rem;
+  padding-top:1rem !important;
 }
 </style>
