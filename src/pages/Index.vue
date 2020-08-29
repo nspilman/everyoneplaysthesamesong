@@ -4,29 +4,6 @@
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
-
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="index.html">Everyone Plays the Same Song</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="elements.html">Elements</a></li>
-								<li><a href="#">Log In</a></li>
-								<li><a href="#">Sign Up</a></li>
-							</ul>
-						</div>
-					</nav>
-
 				<!-- Main -->
 					<div id="main">
 						<!-- One -->
@@ -158,8 +135,8 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
-  }
+    title: 'Everyone Plays the Same Song'
+  },
 }
 </script>
 
