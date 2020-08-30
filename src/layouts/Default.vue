@@ -4,9 +4,9 @@
     				<!-- Header -->
 					<header id="header">
 						<h1><g-link to="/">Everyone Plays the Same Song</g-link></h1>
-						<nav>
+						<!-- <nav>
 							<button id="menuButton" @click="showMenu = !showMenu">Menu</button>
-						</nav>
+						</nav> -->
 					</header>
         <!-- <Menu 
         v-show="showMenu"
