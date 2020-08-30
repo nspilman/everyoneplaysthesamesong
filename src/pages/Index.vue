@@ -48,29 +48,10 @@
 								</div>
 							</section>
 
-						<!-- Two -->
-							<section id="two" class="spotlight">
-								<div class="image"><img src="../assets/images/pic01.jpg" alt="" /></div><div class="content">
-									<h2>Volutpat ante libero</h2>
-									<p>Praesent egestas quam at lorem imperdiet lobortis. Mauris condimentum et euismod ipsum, at ullamcorper libero dolor auctor sit amet. Proin vulputate amet sem ut tempus. Donec quis ante viverra, suscipa facilisis at, vestibulum id urna. Lorem ipsum dolor sit amet sollicitudin.</p>
-								</div>
-							</section>
-
-						<!-- Three -->
-							<section id="three" class="spotlight alt">
-								<div class="image"><img src="../assets/images/pic02.jpg" alt="" /></div><div class="content">
-									<h2>Elit auctor tempus</h2>
-									<p>Praesent egestas quam at lorem imperdiet lobortis. Mauris condimentum et euismod ipsum, at ullamcorper libero dolor auctor sit amet. Proin vulputate amet sem ut tempus. Donec quis ante viverra, suscipa facilisis at, vestibulum id urna. Lorem ipsum dolor sit amet sollicitudin.</p>
-								</div>
-							</section>
-
-						<!-- Four -->
-							<section id="four" class="spotlight">
-								<div class="image"><img src="../assets/images/pic03.jpg" alt="" /></div><div class="content">
-									<h2>Porta vestibulum</h2>
-									<p>Praesent egestas quam at lorem imperdiet lobortis. Mauris condimentum et euismod ipsum, at ullamcorper libero dolor auctor sit amet. Proin vulputate amet sem ut tempus. Donec quis ante viverra, suscipa facilisis at, vestibulum id urna. Lorem ipsum dolor sit amet sollicitudin.</p>
-								</div>
-							</section>
+              <round-display v-for="(post,i) in roundPosts" 
+              :index="i" 
+              :post="post" 
+              :key="post.title"/>
 
 						<!-- Five -->
 							<section id="five" class="cta">
@@ -121,21 +102,50 @@
 
 			</div>
 
-		<!-- Scripts -->
-			<!-- <script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script> -->
-
 	</body>
   </Layout>
 </template>
 
+<page-query>
+query Posts {
+  posts: allPost(filter: { published: { eq: true }}) {
+    edges {
+      node {
+        id
+        title
+        date
+        description
+        path
+        excerpt
+        published
+        favorite
+        tags {
+          title
+        }
+    }
+  }
+  }
+  }
+  </page-query>
+
+
 <script>
+import RoundDisplay from "../components/home/RoundDisplay"
+
 export default {
   metaInfo: {
     title: 'Everyone Plays the Same Song'
+  },
+  components: {
+    RoundDisplay
+  },
+    computed: {
+    roundPosts() {
+      return this.$page.posts.edges.map(edge => edge.node).filter(post => !post.tags.map(tag=> tag.title).includes('eptss-main') );
+    },
+    mainPost() {
+      return this.$page.posts.edges.map(edge => edge.node).find(post => post.tags.map(tag=> tag.title).includes('eptss-main') );
+    },
   },
 }
 </script>
