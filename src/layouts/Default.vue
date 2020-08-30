@@ -9,7 +9,7 @@
 						</nav>
 					</header>
         <Menu 
-        v-if="showMenu"
+        v-show="showMenu"
         @closeMenu="closeMenu"
         />
     <slot/>
