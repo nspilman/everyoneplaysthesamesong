@@ -3,12 +3,15 @@
   <div id="main">
     				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.html">Everyone Plays the Same Song</a></h1>
+						<h1><g-link to="/">Everyone Plays the Same Song</g-link></h1>
 						<nav>
 							<button id="menuButton" @click="showMenu = !showMenu">Menu</button>
 						</nav>
 					</header>
-        <Menu v-if="showMenu"/>
+        <Menu 
+        v-if="showMenu"
+        @closeMenu="showMenu = false"
+        />
     <slot/>
   </div>
 </template>

@@ -1,7 +1,7 @@
 
 <template>
   <Layout>
-    <section id="content" class="default">
+    <section id="post-main" class="default">
         <header class="major">
             <h1>{{$page.post.title}}</h1>
             <p>{{$page.post.description}}</p>
@@ -108,13 +108,11 @@ export default {
 };
 </script>
 <style>
-#home{
-    color:black;
-}
 
 #post-main{
     margin-top: 4em;
-    background-color: white;
+    background-color: rgb(67, 75, 85);
+    padding:2rem;
 }
 
 #post-body{
@@ -130,6 +128,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#content img {
+  max-width:80vw;
+  text-align:center;
 }
 
 .post{

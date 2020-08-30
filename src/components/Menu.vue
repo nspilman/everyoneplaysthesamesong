@@ -1,23 +1,17 @@
 <template>
   <!-- Menu -->
-  <nav id="menu">
+  <nav id="menu" @click="closeMenu">
     <div class="inner">
       <h2>Menu</h2>
       <ul class="links">
-        <li>
-          <g-link to="/">Home</g-link>
+        <li @click="closeMenu">
+          <g-link to="/"> Home </g-link>
         </li>
-        <li>
-          <a href="generic.html">Generic</a>
+        <li @click="closeMenu">
+          <g-link to="/#rounds"> Past Rounds </g-link>
         </li>
-        <li>
-          <a href="elements.html">Elements</a>
-        </li>
-        <li>
-          <a href="#">Log In</a>
-        </li>
-        <li>
-          <a href="#">Sign Up</a>
+        <li @click="closeMenu">
+          <g-link to="https://forms.gle/jozk2utbzuGgHkZHA">Sign Up</g-link>
         </li>
       </ul>
     </div>
@@ -25,7 +19,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    closeMenu(){
+      console.log('i am called')
+      this.$emit('closeMenu')
+    }
+  }
+};
 </script>
 
 <style scoped>
