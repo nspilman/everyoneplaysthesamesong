@@ -8,10 +8,10 @@
 							<button id="menuButton" @click="showMenu = !showMenu">Menu</button>
 						</nav>
 					</header>
-        <Menu 
+        <!-- <Menu 
         v-show="showMenu"
         @closeMenu="closeMenu"
-        />
+        /> -->
     <slot/>
   </div>
 </template>
