@@ -10,7 +10,7 @@
 					</header>
         <Menu 
         v-if="showMenu"
-        @closeMenu="showMenu = false"
+        @closeMenu="closeMenu"
         />
     <slot/>
   </div>
@@ -33,6 +33,11 @@ export default {
   data(){
     return {
       showMenu:false,
+    }
+  },
+  methods:{
+    closeMenu(){
+      this.showMenu = false;
     }
   }
 }

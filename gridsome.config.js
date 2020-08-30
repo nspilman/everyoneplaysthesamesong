@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'Everyone Plays the Same Song - Covers Project',
+  siteDescription: 'A community covers project for fun and learning!',
   plugins: [
     {
       use: '@gridsome/source-filesystem',

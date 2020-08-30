@@ -22,7 +22,6 @@
 export default {
   methods:{
     closeMenu(){
-      console.log('i am called')
       this.$emit('closeMenu')
     }
   }
