@@ -35,8 +35,8 @@
             </section>
             <section class="feature">
               <h3>How to Get Involved</h3>
-              <p>Signups for Round 4 are open, closing Wednesday, Sept 2nd.</p>
-              <g-link id="signup-link" to="https://forms.gle/jozk2utbzuGgHkZHA">
+              <p>Round 4 is currently under way. Put your name on the mailing list to get notified when Round 5 kicks off. </p>
+              <g-link id="signup-link" :to="mailingList">
               <button>Sign Up</button>
               </g-link>
               
@@ -95,6 +95,11 @@ import RoundDisplay from "../components/home/RoundDisplay";
 export default {
   metaInfo: {
     title: "Everyone Plays the Same Song",
+  },
+  data(){
+    return {
+      mailingList: 'https://forms.gle/WWExzdN3e61Ko3J28',
+    }
   },
   components: {
     RoundDisplay,

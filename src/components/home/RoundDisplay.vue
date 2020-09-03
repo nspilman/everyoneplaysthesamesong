@@ -6,7 +6,7 @@
     <div class="content">
       <g-link :to="post.path"><h2>{{post.title}}</h2></g-link>
       <p>{{postData.song}}</p>
-      <div class="soundcloud" v-html="postData.soundcloudPlayer"/>
+      <div v-if="postData.soundcloudPlayer" class="soundcloud" v-html="postData.soundcloudPlayer"/>
     </div>
   </section>
 </template>
@@ -22,6 +22,7 @@ export default {
          post1:'eptss-rnd1',
          post2:'eptss-rnd2',
          post3:'eptss-rnd3',
+         post4:'eptss-rnd4',
         }
     },
     computed:{
@@ -37,6 +38,9 @@ export default {
             }
             if(this.post.tags.map(tag => tag.title).includes(this.post3)){
                 return roundPostWrapper.three;
+            }
+            if(this.post.tags.map(tag => tag.title).includes(this.post4)){
+                return roundPostWrapper.four;
             }
             return roundPostWrapper.default;
         }
