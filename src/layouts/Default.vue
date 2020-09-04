@@ -3,7 +3,9 @@
   <div id="main">
     				<!-- Header -->
 					<header id="header">
-						<h1><g-link to="/">Everyone Plays the Same Song</g-link></h1>
+						<g-link to="/">
+              <h1>Everyone Plays the Same Song</h1>
+            </g-link>
 						<!-- <nav>
 							<button id="menuButton" @click="showMenu = !showMenu">Menu</button>
 						</nav> -->
