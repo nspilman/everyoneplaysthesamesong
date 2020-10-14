@@ -35,10 +35,10 @@
             </section>
             <section class="feature">
               <h3>How to Get Involved</h3>
-              <p>Round 4 is currently under way. Put your name on the mailing list to get notified when Round 5 kicks off. </p>
-              <g-link id="signup-link" :to="mailingList">
-              <button>Sign Up</button>
-              </g-link>
+              <p>Round 5 Signups are currently under way! </p>
+    <g-link id="signup-link" to="https://forms.gle/jozk2utbzuGgHkZHA">
+              <button style="color:black">Sign Up</button>
+    </g-link>
               
             </section>
           </div>
