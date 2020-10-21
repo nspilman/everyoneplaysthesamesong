@@ -36,7 +36,7 @@
             <section class="feature">
               <h3>How to Get Involved</h3>
               <p>Round 5 Signups are currently under way! </p>
-    <g-link id="signup-link" to="https://forms.gle/jozk2utbzuGgHkZHA">
+    <g-link id="signup-link" to="https://forms.gle/Taob3tREZhJQrRHb9">
               <button style="color:black">Sign Up</button>
     </g-link>
               
