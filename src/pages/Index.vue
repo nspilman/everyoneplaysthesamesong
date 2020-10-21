@@ -54,7 +54,7 @@
             </p>
           <ul class="actions special">
             <li>
-    <g-link id="signup-link" to="https://forms.gle/jozk2utbzuGgHkZHA">
+    <g-link id="signup-link" to="https://forms.gle/Taob3tREZhJQrRHb9">
               <button style="color:black">Sign Up</button>
     </g-link>
             </li>
