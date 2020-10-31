@@ -23,6 +23,7 @@ export default {
          post2:'eptss-rnd2',
          post3:'eptss-rnd3',
          post4:'eptss-rnd4',
+         post5:'eptss-rnd5',
         }
     },
     computed:{
