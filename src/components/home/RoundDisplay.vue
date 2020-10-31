@@ -43,6 +43,9 @@ export default {
             if(this.post.tags.map(tag => tag.title).includes(this.post4)){
                 return roundPostWrapper.four;
             }
+            if(this.post.tags.map(tag => tag.title).includes(this.post5)){
+                return roundPostWrapper.five;
+            }
             return roundPostWrapper.default;
         }
     }
