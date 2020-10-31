@@ -28,8 +28,7 @@ export default
         },
         five :{
             image: unknown,
-            song: 'Tomorrow Comes Today by Gorillaz'
-            soundcloudPlayer: '',
+            song: 'Tomorrow Comes Today by Gorillaz',
         },
         default :{
             image: unknown,
