@@ -10,6 +10,7 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.1",
     "@noxify/gridsome-source-git": "^2.0.1",
+    "axios": "^0.21.0",
     "gridsome": "^0.7.0"
   }
 }

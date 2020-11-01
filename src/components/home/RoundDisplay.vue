@@ -13,6 +13,7 @@
 
 <script>
 import roundPostWrapper from "../../utilities/roundPostWrapper"
+import axios from 'axios'
 
 export default {
     name:'RoundDisplay',
@@ -26,9 +27,17 @@ export default {
          post5:'eptss-rnd5',
         }
     },
+    async created(){
+            const roundInfo = await axios.get("https://pioneer-django.herokuapp.com/eptss/" + this.round);
+            console.log('hey')
+            console.log(roundInfo)
+        },
     computed:{
         alt(){
             return this.index % 2 == 0 ? 'alt' : '';
+        },
+        round(){
+            return this.index + 1;
         },
         postData(){
             if(this.post.tags.map(tag => tag.title).includes(this.post1)){
