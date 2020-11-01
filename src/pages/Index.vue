@@ -1,69 +1,92 @@
 <template>
-<Layout>
-  <body class="is-preload">
-    <!-- Page Wrapper -->
-    <div id="page-wrapper">
-      <!-- Main -->
-      <div id="main">
-        <!-- One -->
-        <section id="one" class="features">
-          <header class="major" id="one-header">
-            <h2>Everyone Plays the Same Song</h2>
-            <p>A FUN AND EDUCATIONAL COMMUNITY COVERS PROJECT</p>
-          </header>
-          <div class="content">
-            <section class="feature">
-              <h3>How it Works</h3>All participants
-              <ul>
-                <li>Sign up by submitting a song they'd like to cover.</li>
-                <li>Vote on the song they want to cover. The song with the highest average is the song to cover.</li>
-                <li>Record and submit a cover of the song by the submission deadline.</li>
-                <li>Celebrate at a virtual listening party with all other participants.</li>
-              </ul>
-              <g-link :to="mainPost.path + `#project-details`">
-                <button id="more-info-link">More Info</button>
-              </g-link>
-            </section>
-            <section class="feature">
-              <h3>The Numbers</h3>So far and counting
-              <ul>
-                <li>4 Rounds</li>
-                <li>24 unique participants</li>
-                <li>From 8 different cities</li>
-                <li>In 3 different time zones</li>
-              </ul>
-            </section>
-            <section class="feature">
-              <h3>How to Get Involved</h3>
-              <p>Round 5 Signups are currently under way! </p>
-    <g-link id="signup-link" to="https://forms.gle/Taob3tREZhJQrRHb9">
-              <button style="color:black">Sign Up</button>
-    </g-link>
-              
-            </section>
+  <Layout>
+    <body class="is-preload">
+      <!-- Page Wrapper -->
+      <div id="page-wrapper">
+        <!-- Main -->
+        <div id="main">
+          <!-- One -->
+          <section id="one" class="features">
+            <header class="major" id="one-header">
+              <h2>Everyone Plays the Same Song</h2>
+              <p>A FUN AND EDUCATIONAL COMMUNITY COVERS PROJECT</p>
+            </header>
+            <div class="content">
+              <section class="feature">
+                <h3>How it Works</h3>
+                All participants
+                <ul>
+                  <li>Sign up by submitting a song they'd like to cover.</li>
+                  <li>
+                    Vote on the song they want to cover. The song with the
+                    highest average is the song to cover.
+                  </li>
+                  <li>
+                    Record and submit a cover of the song by the submission
+                    deadline.
+                  </li>
+                  <li>
+                    Celebrate at a virtual listening party with all other
+                    participants.
+                  </li>
+                </ul>
+                <g-link :to="mainPost.path + `#project-details`">
+                  <button id="more-info-link">More Info</button>
+                </g-link>
+              </section>
+              <section class="feature">
+                <h3>The Numbers</h3>
+                So far and counting
+                <ul>
+                  <li>4 Rounds</li>
+                  <li>24 unique participants</li>
+                  <li>From 8 different cities</li>
+                  <li>In 3 different time zones</li>
+                </ul>
+              </section>
+              <section class="feature">
+                <h3>How to Get Involved</h3>
+                <p>Round 5 Signups are currently under way!</p>
+                <g-link
+                  id="signup-link"
+                  to="https://forms.gle/Taob3tREZhJQrRHb9"
+                >
+                  <button style="color: black">Sign Up</button>
+                </g-link>
+              </section>
+            </div>
+          </section>
+          <div id="rounds">
+            <round-display
+              v-for="(post, i) in postsWithRoundMetadata"
+              :index="i"
+              :post="post"
+              :key="post.title"
+            />
           </div>
-        </section>
-      <div id="rounds">
-        <round-display v-for="(post,i) in roundPosts" :index="i" :post="post" :key="post.title" />
-      </div>
-        <!-- Five -->
-        <section id="get-involved">
-            <h2>Want to throw your cover into the ring? </h2>
+          <!-- Five -->
+          <section id="get-involved">
+            <h2>Want to throw your cover into the ring?</h2>
             <p>
-             Participating in Everyone Plays the Same Song is a way to join a community of musicians, deliver a project on a deadline and flex your skills.
+              Participating in Everyone Plays the Same Song is a way to join a
+              community of musicians, deliver a project on a deadline and flex
+              your skills.
             </p>
-          <ul class="actions special">
-            <li>
-    <g-link id="signup-link" to="https://forms.gle/Taob3tREZhJQrRHb9">
-              <button style="color:black">Sign Up</button>
-    </g-link>
-            </li>
-          </ul>
-        </section>
+            <ul class="actions special">
+              <li>
+                <g-link
+                  id="signup-link"
+                  to="https://forms.gle/Taob3tREZhJQrRHb9"
+                >
+                  <button style="color: black">Sign Up</button>
+                </g-link>
+              </li>
+            </ul>
+          </section>
+        </div>
       </div>
-    </div>
-  </body>
-</Layout>
+    </body>
+  </Layout>
 </template>
 
 <page-query>
@@ -85,6 +108,17 @@ query Posts {
     }
   }
   }
+    rounds: allRounds {
+    edges {
+      node {
+        id
+        round
+        title
+        image
+        playlist
+    }
+  }
+  }
   }
   </page-query>
 
@@ -96,21 +130,36 @@ export default {
   metaInfo: {
     title: "Everyone Plays the Same Song",
   },
-  data(){
+  data() {
     return {
-      mailingList: 'https://forms.gle/WWExzdN3e61Ko3J28',
-    }
+      mailingList: "https://forms.gle/WWExzdN3e61Ko3J28",
+    };
   },
   components: {
     RoundDisplay,
   },
   computed: {
-    roundPosts() {
+    posts() {
       return this.$page.posts.edges
         .map((edge) => edge.node)
         .filter(
           (post) => !post.tags.map((tag) => tag.title).includes("eptss-main")
         );
+    },
+    rounds(){
+      return this.$page.rounds.edges
+        .map((edge) => edge.node)
+    },
+    postsWithRoundMetadata(){
+      return this.posts.map(post => {
+        const eptssTag = post.tags.find(tag => tag.title.includes('eptss'));
+        const roundNumber = eptssTag.title.slice(-1);
+        const roundObj = this.rounds.find(round => round.round == roundNumber);
+        post.song = roundObj.title;
+        post.playlist = roundObj.playlist;
+        post.image = roundObj.image;
+        return post;
+      })
     },
     mainPost() {
       return this.$page.posts.edges
@@ -129,16 +178,16 @@ export default {
   background-size: 100%;
 }
 
-#get-involved{
-  color:black;
-  padding:2rem;
+#get-involved {
+  color: black;
+  padding: 2rem;
 }
 
-#get-involved h2{ 
+#get-involved h2 {
   color: black;
 }
 
-#get-involved button{ 
+#get-involved button {
   color: black !important;
 }
 </style>

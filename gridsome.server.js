@@ -5,9 +5,23 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const axios = require('axios')
+
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+  api.loadSource(async actions => {
+    const { data } = await axios.get(`https://pioneer-django.herokuapp.com/eptss/`)
+    const collection = actions.addCollection({
+      typeName: 'Rounds'
+    })
+
+    for (const item of data) {
+      collection.addNode({
+        round: item.round,
+        title: item.title,
+        image: item.image,
+        playlist: item.playlist
+      })
+    }
   })
 
   api.createPages(({ createPage }) => {

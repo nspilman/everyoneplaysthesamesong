@@ -14,11 +14,70 @@ favorite: false
 * 7 Cities
 * 1 Song to Cover!
 
+This round's song to cover is **Each Coming Night by Iron and Wine.** 
+
+The cover is due **Monday October 5th!**
+
+**Important links -**  
+
+[The Playlist on Youtube](https://www.youtube.com/playlist?list=PLDkm3cHHN23Gnx9zkZCe9NgUXeFvGUdj7)
+
+[The Playlist on Spotify](https://open.spotify.com/playlist/7b2eaIX5I4Cwu4VGv3AXGI?si=FVFZTUsxRBKu6KbLVfWlgg)
+
+\
+Round 4 cover voting final tally - 
+
+| **Song**                                   | **Score** | **Vetoes** |
+| ------------------------------------------ | --------- | ---------- |
+| **Each Coming Night - Iron & Wine**        | **3.56**  | **0**      |
+| Use Somebody - Kings of Leon               | 3.56      | 1          |
+| Ain't No Sunshine - Bill Withers           | 3.50      | 3          |
+| Fields of Gold - Sting                     | 3.25      | 2          |
+| Helicopter - Bloc Party                    | 3.13      | 2          |
+| Taro - Alt J                               | 3.13      | 1          |
+| Head Over Heals - Tears for Fears          | 3.06      | 1          |
+| Wake Me Up When September Ends - Green Day | 3.06      | 3          |
+| White Wedding Pt 1 - Billy Idol            | 3.06      | 3          |
+| Like Eating Glass - Bloc Party             | 3.00      | 3          |
+| I think ur a contra - Vampire Weekend      | 2.94      | 1          |
+| Dance Monkey - Tones and I                 | 2.94      | 4          |
+| We’re in this Together - Nine In Nails     | 2.81      | 5          |
+| Heart it Races - Architecture in Helsinki  | 2.69      | 5          |
+| Arrow Through Me - Wings                   | 2.69      | 3          |
+| Hoppípolla - Sigur Ros                     | 2.56      | 3          |
 
 
-It's time to vote on which song will be this round's cover! Voting will close midnight of **Wednesday, Sept 9th -** at which point we'll have our cover!
 
-[](https://www.youtube.com/playlist?list=PLDkm3cHHN23Gnx9zkZCe9NgUXeFvGUdj7)[The Playlist on Youtube](https://www.youtube.com/playlist?list=PLDkm3cHHN23Gnx9zkZCe9NgUXeFvGUdj7)
+Detailed Breakdown - 
+
+
+
+| Title                                      | One | Two | Three | Four | Five | Avg  |
+| ------------------------------------------ | --- | --- | ----- | ---- | ---- | ---- |
+| Each Coming Night - Iron & Wine            | 0   | 3   | 6     | 2    | 5    | 3.56 |
+| Use Somebody - Kings of Leon               | 1   | 2   | 4     | 5    | 4    | 3.56 |
+| Ain't No Sunshine - Bill Withers           | 3   | 1   | 2     | 5    | 5    | 3.50 |
+| Fields of Gold - Sting                     | 2   | 2   | 5     | 4    | 3    | 3.25 |
+| Taro - Alt J                               | 1   | 4   | 6     | 2    | 3    | 3.13 |
+| Helicopter - Bloc Party                    | 2   | 4   | 4     | 2    | 4    | 3.13 |
+| Wake Me Up When September Ends - Green Day | 3   | 4   | 1     | 5    | 3    | 3.06 |
+| White Wedding Pt 1 - Billy Idol            | 3   | 3   | 4     | 2    | 4    | 3.06 |
+| Head Over Heals - Tears for Fears          | 1   | 5   | 4     | 4    | 2    | 3.06 |
+| Like Eating Glass - Bloc Party             | 3   | 2   | 5     | 4    | 2    | 3.00 |
+| Dance Monkey - Tones and I                 | 4   | 3   | 2     | 4    | 3    | 2.94 |
+| I think ur a contra - Vampire Weekend      | 1   | 5   | 6     | 2    | 2    | 2.94 |
+| We’re in this Together - Nine In Nails     | 5   | 1   | 5     | 2    | 3    | 2.81 |
+| Heart it Races - Architecture in Helsinki  | 5   | 2   | 4     | 3    | 2    | 2.69 |
+| Arrow Through Me - Wings                   | 3   | 6   | 3     | 1    | 3    | 2.69 |
+| Hoppípolla - Sigur Ros                     | 3   | 6   | 4     | 1    | 2    | 2.56 |
+
+![Round 4 Vote breakdown](/uploads/round4-vote-breakdown.png "Round 4 Vote breakdown")
+
+
+
+
+
+
 
 And the cover candidates are -
 
