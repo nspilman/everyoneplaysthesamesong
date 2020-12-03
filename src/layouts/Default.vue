@@ -57,6 +57,13 @@ export default {
 
 #site-title{
   color:black !important;
+  background-color:rgb(237,219,85);
+  padding:0 1rem;
+  border-radius: 3rem;
+}
+
+#header{
+  background-color:#32383f !important;
 }
 
 .is-preload{

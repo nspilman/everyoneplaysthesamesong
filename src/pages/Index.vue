@@ -178,6 +178,7 @@ export default {
 
 #main{
   border-radius: 3rem;
+  margin-top:2rem;
 }
 
 .action-button{
