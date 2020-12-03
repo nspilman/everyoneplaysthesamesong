@@ -8,7 +8,7 @@
           <!-- One -->
           <section id="one" class="features">
             <header class="major" id="one-header">
-              <h2>Everyone Plays the Same Song</h2>
+              <h2 id="site-title-main">Everyone Plays the Same Song</h2>
               <p>A FUN AND EDUCATIONAL COMMUNITY COVERS PROJECT</p>
             </header>
             <div class="content">
@@ -52,7 +52,7 @@
                   id="signup-link"
                   :to="signupForm"
                 >
-                  <button style="color: black">Sign Up</button>
+                  <button class="action-button" style="color: black">Sign Up</button>
                 </g-link>
               </section>
             </div>
@@ -79,7 +79,7 @@
                   id="signup-link"
                   :to="signupForm"
                 >
-                  <button style="color: black">Sign Up</button>
+                  <button class="action-button" style="color: black">Sign Up</button>
                 </g-link>
               </li>
             </ul>
@@ -175,9 +175,34 @@ export default {
 </script>
 
 <style>
+
+#main{
+  border-radius: 3rem;
+}
+
+.action-button{
+  color:black !important;
+  background-color: rgb(237,219,85);
+}
+
 #one-header {
-  background-image: url("../assets/images/section_one_bg.jpg");
-  background-size: 100%;
+  background-color: rgb(237,219,85);
+  background-image: unset;
+  color:black !important;
+  border-radius: 3rem;
+}
+
+header p{
+  color: black !important;
+}
+
+#site-title-main{
+  color:black;
+  font-size:3rem;
+}
+
+#one{
+  border-radius: 3rem;
 }
 
 #get-involved {
@@ -191,5 +216,9 @@ export default {
 
 #get-involved button {
   color: black !important;
+}
+
+.feature{
+  color:rgb(237,219,85);
 }
 </style>

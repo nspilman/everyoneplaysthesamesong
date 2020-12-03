@@ -48,7 +48,6 @@ export default {
 <style>
 #main {
   padding-top:0 !important;
-  background-color: #e4e0ea;
 }
 
 #menuButton {

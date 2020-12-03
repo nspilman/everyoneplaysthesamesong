@@ -35,6 +35,8 @@ export default {
 }
 .round-display{
   padding:2rem;
+  border-radius: 3rem;
+  margin: 2rem 0;
 }
 
 .content{
