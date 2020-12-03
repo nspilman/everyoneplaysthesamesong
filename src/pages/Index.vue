@@ -38,9 +38,9 @@
                 <h3>The Numbers</h3>
                 So far and counting
                 <ul>
-                  <li>4 Rounds</li>
-                  <li>24 unique participants</li>
-                  <li>From 8 different cities</li>
+                  <li>5 Rounds</li>
+                  <li>26 unique participants</li>
+                  <li>From 9 different cities</li>
                   <li>In 3 different time zones</li>
                 </ul>
               </section>
