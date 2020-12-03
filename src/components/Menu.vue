@@ -11,7 +11,7 @@
           <g-link to="/#rounds"> Past Rounds </g-link>
         </li>
         <li @click="closeMenu">
-          <g-link to="https://forms.gle/jozk2utbzuGgHkZHA">Sign Up</g-link>
+          <g-link to="https://forms.gle/zJV2QDPrDBfXCtij8">Sign Up</g-link>
         </li>
       </ul>
     </div>

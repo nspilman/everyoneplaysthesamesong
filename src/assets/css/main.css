@@ -3363,7 +3363,7 @@ input, select, textarea {
 				#main .cta {
 					padding: 4em 1.5em 2em 1.5em ;
 					background-color: #6a707c;
-					background-image: url("images/overlay.png"), url("../images/bg.jpg");
+					/* background-image: url("images/overlay.png"), url("../images/bg.jpg"); */
 					background-size: 100px 100px,				cover;
 					background-repeat: repeat,						no-repeat;
 					background-attachment: scroll,						scroll;

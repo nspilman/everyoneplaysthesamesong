@@ -4,7 +4,7 @@
     				<!-- Header -->
 					<header id="header">
 						<g-link to="/">
-              <h1>Everyone Plays the Same Song</h1>
+              <h1 id="site-title">Everyone Plays the Same Song</h1>
             </g-link>
 						<!-- <nav>
 							<button id="menuButton" @click="showMenu = !showMenu">Menu</button>
@@ -52,6 +52,11 @@ export default {
 }
 
 #menuButton {
+  color:black !important;
+}
+
+
+#site-title{
   color:black !important;
 }
 

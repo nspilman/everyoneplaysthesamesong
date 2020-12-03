@@ -46,10 +46,11 @@
               </section>
               <section class="feature">
                 <h3>How to Get Involved</h3>
-                <p>Round 5 Signups are currently under way!</p>
+                <p>Round 6 Signups are currently under way!</p>
+                <p>Signups close December 14th, 2020</p>
                 <g-link
                   id="signup-link"
-                  to="https://forms.gle/Taob3tREZhJQrRHb9"
+                  :to="signupForm"
                 >
                   <button style="color: black">Sign Up</button>
                 </g-link>
@@ -76,7 +77,7 @@
               <li>
                 <g-link
                   id="signup-link"
-                  to="https://forms.gle/Taob3tREZhJQrRHb9"
+                  :to="signupForm"
                 >
                   <button style="color: black">Sign Up</button>
                 </g-link>
@@ -133,6 +134,7 @@ export default {
   data() {
     return {
       mailingList: "https://forms.gle/WWExzdN3e61Ko3J28",
+      signupForm: "https://forms.gle/H7Ava6mciUdUQQjn9",
     };
   },
   components: {
