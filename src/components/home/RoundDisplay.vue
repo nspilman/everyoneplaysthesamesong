@@ -1,5 +1,5 @@
 <template>
-  <section :class="`spotlight ${alt}`">
+  <section :class="`spotlight ${alt} round-display`">
     <div class="image">
       <g-image :src="post.image" alt />
     </div>
@@ -29,4 +29,15 @@ export default {
 </script>
 
 <style>
+
+.image{
+  padding:1rem;
+}
+.round-display{
+  padding:2rem;
+}
+
+.content{
+  padding:1rem !important;
+}
 </style>
