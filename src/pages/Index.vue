@@ -194,6 +194,9 @@ export default {
 }
 
 #get-involved{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   background-color:rgb(240,230,230);
   border-radius: 3rem;
 }
