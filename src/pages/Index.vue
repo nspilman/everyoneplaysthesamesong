@@ -193,6 +193,11 @@ export default {
   border-radius: 3rem;
 }
 
+#get-involved{
+  background-color:rgb(240,230,230);
+  border-radius: 3rem;
+}
+
 header p{
   color: black !important;
 }
