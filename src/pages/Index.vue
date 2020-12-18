@@ -13,9 +13,9 @@
           <g-link :to="learnMoreLink">
             <button>Learn</button>
           </g-link>
-          <a href="#listen">
+          <g-link to="/#listen">
             <button>Listen</button>
-          </a>
+          </g-link>
           <button class="button-primary">Sign Up</button>
         </div>
       </div>
