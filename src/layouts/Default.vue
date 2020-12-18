@@ -1,19 +1,23 @@
 <template>
 
   <div id="main">
-    				<!-- Header -->
-					<header id="header">
-						<g-link to="/">
-              <h1 id="site-title">Everyone Plays the Same Song</h1>
-            </g-link>
-						<!-- <nav>
-							<button id="menuButton" @click="showMenu = !showMenu">Menu</button>
-						</nav> -->
-					</header>
-        <!-- <Menu 
-        v-show="showMenu"
-        @closeMenu="closeMenu"
-        /> -->
+ <header id ="header">
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler">
+            <div class="hamburger"><div></div></div>
+            <div class="menu">
+              <div>
+                <div>
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="./learn-more">Learn More</a></li>
+                    <li><a target="blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSf6eDCvqQcD_VVlmg7x-Xk5d9Xgnk4bPBpWbX3_pkYI3R2OuA/viewform">Sign Up</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </header>
     <slot/>
   </div>
 </template>

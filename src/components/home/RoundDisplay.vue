@@ -1,16 +1,17 @@
 <template>
-  <section :class="`spotlight ${alt} round-display`">
-    <div class="image">
-      <g-image :src="post.image" alt />
-    </div>
-    <div class="content">
-      <g-link :to="post.path"
-        ><h2>{{ post.title }}</h2></g-link
-      >
-      <p>{{ post.song }}</p>
+  <div class="card">
+    <g-link :to="post.path">
+      <h3>
+        <p class='song-name'>{{ post.song }}</p>
+      </h3>
+      <p class="song-round">
+        {{ post.title }}
+      </p>
+    </g-link>
+    <div>
       <div v-if="post.playlist" class="soundcloud" v-html="post.playlist" />
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -28,18 +29,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
-.image{
-  padding:1rem;
-}
-.round-display{
-  padding:2rem;
-  border-radius: 3rem;
-  margin: 2rem 0;
+a{
+  text-decoration: none;
+  color:white;
 }
 
-.content{
-  padding:1rem !important;
-}
 </style>
