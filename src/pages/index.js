@@ -12,7 +12,7 @@ const IndexPage = ({data}) => {
   const learnMoreLink = '/everone-plays-the-same-song'
   return (
 <Layout>
-    <SEO title="Home" />
+    <SEO title="Everyone Plays the Same Song" />
     <section class="hero">
       <div class="hero-container">
         <h1>Everyone Plays the Same Song</h1>
