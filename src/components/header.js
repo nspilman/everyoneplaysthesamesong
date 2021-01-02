@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const learnMoreLink = '/everone-plays-the-same-song'
+const learnMoreLink = '/everyone-plays-the-same-song'
 
 const Header = ({ siteTitle }) => (
   <header id ="header">

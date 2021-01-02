@@ -9,7 +9,6 @@ const IndexPage = ({data}) => {
   const general_info_slug = '/everyone-plays-the-same-song/';
   const nodes = data.allMarkdownRemark.edges.map(edge => edge.node)
   const roundPosts = nodes.filter(node => node.fields.slug !== general_info_slug)
-  const learnMoreLink = '/everone-plays-the-same-song'
   return (
 <Layout>
     <SEO title="Everyone Plays the Same Song" />
@@ -23,7 +22,7 @@ const IndexPage = ({data}) => {
             join us for the next round.
         </p>
         <div class="button-container">
-          <Link to={learnMoreLink}>
+          <Link to={general_info_slug}>
             <button>Learn</button>
           </Link>
           <Link to="/#listen">
@@ -65,7 +64,9 @@ const IndexPage = ({data}) => {
               2020.
           </p>
           <div class="button-container">
-           <Link to={learnMoreLink} id="learn">  <button>Learn More</button>  </Link>
+           <Link to={general_info_slug} id="learn"> 
+              <button>Learn More</button>  
+          </Link>
             <button>
               <a href="#listen">Listen</a>
             </button>
