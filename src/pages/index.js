@@ -9,7 +9,7 @@ const IndexPage = ({data}) => {
   const general_info_slug = '/everyone-plays-the-same-song/';
   const nodes = data.allMarkdownRemark.edges.map(edge => edge.node)
   const roundPosts = nodes.filter(node => node.fields.slug !== general_info_slug)
-  const learnMoreLink = ''
+  const learnMoreLink = '/everone-plays-the-same-song'
   return (
 <Layout>
     <SEO title="Home" />

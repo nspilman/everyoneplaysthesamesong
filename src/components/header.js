@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+const learnMoreLink = '/everone-plays-the-same-song'
+
 const Header = ({ siteTitle }) => (
   <header id ="header">
   <div class="menu-wrap">
@@ -11,9 +13,9 @@ const Header = ({ siteTitle }) => (
         <div>
           <div>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="./learn-more">Learn More</a></li>
-              <li><a target="blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSf6eDCvqQcD_VVlmg7x-Xk5d9Xgnk4bPBpWbX3_pkYI3R2OuA/viewform">Sign Up</a></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link to={learnMoreLink}>Learn More</Link></li>
+              <li><Link  href="https://docs.google.com/forms/d/e/1FAIpQLSf6eDCvqQcD_VVlmg7x-Xk5d9Xgnk4bPBpWbX3_pkYI3R2OuA/viewform">Sign Up</Link></li>
             </ul>
           </div>
         </div>
