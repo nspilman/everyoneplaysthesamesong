@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
 import getSignupLink from "../hooks/getSignupLink"
 
 const SignupButton = () => {

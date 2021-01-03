@@ -16,7 +16,7 @@ const signupLink = getSignupLink();
           <div>
             <div>
               <ul>
-                <li><Link href="/">Home</Link></li>
+                <li><Link to="/">Home</Link></li>
                 <li><Link to={learnMoreLink}>Learn More</Link></li>
                 <li>
                   <a href={signupLink}>Sign Up</a></li>

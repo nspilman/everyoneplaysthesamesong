@@ -1,20 +1,18 @@
 
 
 import React from "react"
-import { graphql} from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 
 import formattedDateString from "../utilities/formattedDateString"
 
 export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
+  data, pageContext
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { markdownRemark } = data 
   const { frontmatter, html } = markdownRemark
-//   const allPosts = useStaticQuery(graphql`
 
-//   `
-//   )
+  const { next, previous } = pageContext
   return (
 <Layout>
     <section id="post-main" className="default">
@@ -36,12 +34,16 @@ export default function Template({
           padding: '2em',
         }}
       >
-        {/* <li v-if="previousPost">
-          <Link to="previousPost.path"> {previousPost.title } </Link>
-        </li>
-        <li v-if="nextPost">
-          <Link to="nextPost.path"> { nextPost.title } </Link>
-        </li> */}
+        {previous &&
+        <li id="previous-post">
+        <Link to={previous.fields.slug}> {previous.frontmatter.title } </Link>
+      </li>
+      }
+            {next &&
+        <li id="next-post">
+        <Link to={next.fields.slug}> {next.frontmatter.title } </Link>
+      </li>
+      } 
       </ul>
     </section>
   </Layout>

@@ -8,9 +8,10 @@ import SignupButton from "../components/signupButton"
 import getCurrentBlurb from "../hooks/getOverviewBlurb";
 
 const IndexPage = ({ data }) => {
-  const general_info_slug = '/everyone-plays-the-same-song/';
+  const GENERAL_INFO_SLUG = '/everyone-plays-the-same-song/';
+  
   const nodes = data.allMarkdownRemark.edges.map(edge => edge.node)
-  const roundPosts = nodes.filter(node => node.fields.slug !== general_info_slug)
+  const roundPosts = nodes.filter(node => node.fields.slug !== GENERAL_INFO_SLUG)
   const currentProjectOverviewBlurb = getCurrentBlurb();
 
   return (
@@ -26,7 +27,7 @@ const IndexPage = ({ data }) => {
             join us for the next round.
         </p>
           <div className="button-container">
-            <Link to={general_info_slug}>
+            <Link to={GENERAL_INFO_SLUG}>
               <button>Learn</button>
             </Link>
             <Link to="/#listen">
@@ -67,11 +68,11 @@ const IndexPage = ({ data }) => {
               {currentProjectOverviewBlurb}
           </p>
             <div className="button-container">
-              <Link to={general_info_slug} id="learn">
+              <Link to={GENERAL_INFO_SLUG} id="learn">
                 <button>Learn More</button>
               </Link>
               <button>
-                <a href="#listen">Listen</a>
+                <Link to="#listen">Listen</Link>
               </button>
               <SignupButton/>
             </div>

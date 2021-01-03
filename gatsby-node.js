@@ -67,6 +67,22 @@ exports.createPages = async ({ actions, graphql, reporter}) => {
           limit: 1000
         ) {
           edges {
+            next{
+              frontmatter{
+                title
+              }
+              fields{
+                slug
+              }
+            }
+            previous{
+              frontmatter{
+                title
+              }
+              fields{
+                slug
+              }
+            }
             node {
             fields {
                 slug
@@ -85,11 +101,13 @@ exports.createPages = async ({ actions, graphql, reporter}) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  rounds.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  rounds.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
     createPage({
       path: node.fields.slug,
       component: blogPostTemplate,
       context: {
+        next: next,
+        previous: previous,
         // additional data can be passed via context
         slug: node.fields.slug,
       },
