@@ -1,12 +1,11 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React, { ReactElement } from "react"
 import getSignupLink from "../hooks/getSignupLink"
-const learnMoreLink = '/everyone-plays-the-same-song'
+ 
+const learnMoreLink : string = '/everyone-plays-the-same-song';
 
-const Header = ({ siteTitle }) => {
-const signupLink = getSignupLink();
-  
+const Header = (): ReactElement => {
+  const signupLink : string = getSignupLink();
   return (
     <header id ="header">
     <div className="menu-wrap">
@@ -16,10 +15,15 @@ const signupLink = getSignupLink();
           <div>
             <div>
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to={learnMoreLink}>Learn More</Link></li>
                 <li>
-                  <a href={signupLink}>Sign Up</a></li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to={learnMoreLink}>Learn More</Link>
+                </li>
+                <li>
+                  <a href={signupLink}>Sign Up</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -27,15 +31,6 @@ const signupLink = getSignupLink();
     </div>
   </header>
   )
-}
- 
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header

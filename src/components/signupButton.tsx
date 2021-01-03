@@ -1,8 +1,8 @@
-import React from "react"
+import React, { ReactElement } from "react"
 import getSignupLink from "../hooks/getSignupLink"
 
-const SignupButton = () => {
-    const signupLink = getSignupLink();
+const SignupButton = () : ReactElement => {
+    const signupLink : string= getSignupLink();
 
     return (
         <a target="_blank"

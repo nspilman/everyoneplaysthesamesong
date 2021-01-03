@@ -1,7 +1,6 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const axios = require(`axios`)
 
-
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
 
@@ -58,7 +57,7 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ actions, graphql, reporter}) => {
   const { createPage } = actions
-  const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.js`)
+  const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.tsx`)
 
   const rounds = await graphql(`
       {
@@ -108,7 +107,6 @@ exports.createPages = async ({ actions, graphql, reporter}) => {
       context: {
         next: next,
         previous: previous,
-        // additional data can be passed via context
         slug: node.fields.slug,
       },
     })

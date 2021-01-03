@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,9 +7,34 @@ import RoundDisplay from "../components/roundDisplay"
 import SignupButton from "../components/signupButton"
 import getCurrentBlurb from "../hooks/getOverviewBlurb";
 
-const IndexPage = ({ data }) => {
+type IndexPageProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: [
+        {
+          node: {
+            fields: {
+              slug: string,
+              playlist: string,
+              song: string
+            }
+            frontmatter: {
+              date: string,
+              description: string,
+              favorite: boolean,
+              published: boolean,
+              title: string,
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const GENERAL_INFO_SLUG = '/everyone-plays-the-same-song/';
-  
+
   const nodes = data.allMarkdownRemark.edges.map(edge => edge.node)
   const roundPosts = nodes.filter(node => node.fields.slug !== GENERAL_INFO_SLUG)
   const currentProjectOverviewBlurb = getCurrentBlurb();
@@ -33,7 +58,7 @@ const IndexPage = ({ data }) => {
             <Link to="/#listen">
               <button>Listen</button>
             </Link>
-            <SignupButton/>
+            <SignupButton />
           </div>
         </div>
       </section>
@@ -66,7 +91,7 @@ const IndexPage = ({ data }) => {
             </div>
             <p className="hiw">
               {currentProjectOverviewBlurb}
-          </p>
+            </p>
             <div className="button-container">
               <Link to={GENERAL_INFO_SLUG} id="learn">
                 <button>Learn More</button>
@@ -74,7 +99,7 @@ const IndexPage = ({ data }) => {
               <button>
                 <Link to="#listen">Listen</Link>
               </button>
-              <SignupButton/>
+              <SignupButton />
             </div>
           </div>
           <div className="card-header">
@@ -85,7 +110,7 @@ const IndexPage = ({ data }) => {
             return (
               <RoundDisplay
                 key={node.fields.slug}
-                post={node}
+                round={node}
               />
             )
           })}
@@ -94,7 +119,7 @@ const IndexPage = ({ data }) => {
 
       <footer className="footer">
         <div className="button-container">
-        <SignupButton/>
+          <SignupButton />
         </div>
       </footer>
     </Layout >
@@ -117,7 +142,6 @@ export const query = graphql`
           favorite
           published
           title
-          tags
         }
       }
     }

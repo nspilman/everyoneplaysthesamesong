@@ -1,7 +1,17 @@
 import { useStaticQuery, graphql } from "gatsby"
 
+type OverviewBlurbQuery = {
+    allState : {
+      edges : {
+        node : {
+            blurb : string
+        },
+      }
+    }
+  }
+
 const Blurb = () => {
-    const data = useStaticQuery(graphql`
+    const data = useStaticQuery<OverviewBlurbQuery>(graphql`
     query StateQuery {
         allState {
             edges {

@@ -1,7 +1,19 @@
 import { useStaticQuery, graphql } from "gatsby"
 
+type SignupLinkQueryProps = {
+    allState : {
+      edges : {
+        node : {
+            currentPhase : string,
+            mailingList: string,
+            signupSheet: string
+        },
+      }
+    }
+  }
+
 const SignupLink = () => {
-    const data = useStaticQuery(graphql`
+    const data = useStaticQuery<SignupLinkQueryProps>(graphql`
     query SignupLinkQuery {
         allState {
             edges {
