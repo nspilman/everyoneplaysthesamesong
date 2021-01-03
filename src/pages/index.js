@@ -5,11 +5,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RoundDisplay from "../components/roundDisplay"
 import SignupButton from "../components/signupButton"
+import getCurrentBlurb from "../hooks/getOverviewBlurb";
 
 const IndexPage = ({ data }) => {
   const general_info_slug = '/everyone-plays-the-same-song/';
   const nodes = data.allMarkdownRemark.edges.map(edge => edge.node)
   const roundPosts = nodes.filter(node => node.fields.slug !== general_info_slug)
+  const currentProjectOverviewBlurb = getCurrentBlurb();
 
   return (
     <Layout>
@@ -62,8 +64,7 @@ const IndexPage = ({ data }) => {
               </div>
             </div>
             <p className="hiw">
-              Round 6 signups are currently underway and will close December 14th,
-              2020.
+              {currentProjectOverviewBlurb}
           </p>
             <div className="button-container">
               <Link to={general_info_slug} id="learn">
