@@ -19,7 +19,7 @@ export default function Template({
       <header className="major">
         <h1>{frontmatter.title }</h1>
         <p>{ frontmatter.description }</p>
-        <time className="published" datetime="2015-11-01">{
+        <time className="published" dateTime={frontmatter.date}>{
           formattedDateString(frontmatter.date)
         }</time>
       </header>
@@ -34,15 +34,17 @@ export default function Template({
           padding: '2em',
         }}
       >
-        {previous &&
+        {previous ?
         <li id="previous-post">
         <Link to={previous.fields.slug}> {previous.frontmatter.title } </Link>
-      </li>
+      </li> :
+      <li id="empty-previous-post"/>
       }
-            {next &&
+            {next ?
         <li id="next-post">
         <Link to={next.fields.slug}> {next.frontmatter.title } </Link>
       </li>
+      : <li id="empty-next-post"/>
       } 
       </ul>
     </section>
