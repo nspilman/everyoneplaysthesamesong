@@ -17,11 +17,11 @@ export default function Template({
 //   )
   return (
 <Layout>
-    <section id="post-main" class="default">
-      <header class="major">
+    <section id="post-main" className="default">
+      <header className="major">
         <h1>{frontmatter.title }</h1>
         <p>{ frontmatter.description }</p>
-        <time class="published" datetime="2015-11-01">{
+        <time className="published" datetime="2015-11-01">{
           formattedDateString(frontmatter.date)
         }</time>
       </header>

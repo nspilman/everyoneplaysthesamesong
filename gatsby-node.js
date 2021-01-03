@@ -1,12 +1,37 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const axios = require(`axios`)
+
+
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions
+
+  const { data } = await axios.get("https://pioneer-django.herokuapp.com/eptss/state") 
+  const nodeContent = JSON.stringify(data)
+
+  const nodeMeta = {
+    id: createNodeId(`my-data-${data.round}`),
+    parent: null,
+    children: [],
+    internal: {
+      type: `State`,
+      mediaType: `text/html`,
+      content: nodeContent,
+      contentDigest: createContentDigest(data)
+    }
+  }
+
+  const node = Object.assign({}, await data, nodeMeta)
+  createNode(node)
+}
+
 exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if(!node.frontmatter){
     return
   }
+
   const eptss_tag = node.frontmatter.tags.find(tag => tag.includes('eptss'))
-  if (eptss_tag != 'eptss-main'){
+  if (eptss_tag != `eptss-main`){
     const round = eptss_tag.slice(-1)
     const { data } = await axios.get(`https://pioneer-django.herokuapp.com/eptss/${round}`)
     createNodeField({
@@ -31,9 +56,10 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage, createNodeField } = actions
+exports.createPages = async ({ actions, graphql, reporter}) => {
+  const { createPage } = actions
   const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.js`)
+
   const rounds = await graphql(`
       {
         allMarkdownRemark(

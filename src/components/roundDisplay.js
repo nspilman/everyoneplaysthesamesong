@@ -10,7 +10,7 @@ const roundDisplay = ({post}) => {
       <h3>
         <p className='song-name'>{ song }</p>
       </h3>
-      <p class="song-round">
+      <p className="song-round">
         { title }
       </p>
     </Link>

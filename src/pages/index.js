@@ -4,97 +4,99 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RoundDisplay from "../components/roundDisplay"
+import SignupButton from "../components/signupButton"
+import getCurrentBlurb from "../hooks/getOverviewBlurb";
 
-const IndexPage = ({data}) => {
+const IndexPage = ({ data }) => {
   const general_info_slug = '/everyone-plays-the-same-song/';
   const nodes = data.allMarkdownRemark.edges.map(edge => edge.node)
   const roundPosts = nodes.filter(node => node.fields.slug !== general_info_slug)
+  const currentProjectOverviewBlurb = getCurrentBlurb();
+
   return (
-<Layout>
-    <SEO title="Everyone Plays the Same Song" />
-    <section class="hero">
-      <div class="hero-container">
-        <h1>Everyone Plays the Same Song</h1>
-        <p>
+    <Layout>
+      <SEO title="Everyone Plays the Same Song" />
+      <section className="hero">
+        <div className="hero-container">
+          <h1>Everyone Plays the Same Song</h1>
+          <p>
             Everyone Plays the Same Song is a fun and educational community covers
             project. Members suggest and vote on songs to cover, submit their
             songs and then celebrate with a listening party. Please sign up and
             join us for the next round.
         </p>
-        <div class="button-container">
-          <Link to={general_info_slug}>
-            <button>Learn</button>
-          </Link>
-          <Link to="/#listen">
-            <button>Listen</button>
-          </Link>
-          <button class="button-primary">Sign Up</button>
+          <div className="button-container">
+            <Link to={general_info_slug}>
+              <button>Learn</button>
+            </Link>
+            <Link to="/#listen">
+              <button>Listen</button>
+            </Link>
+            <SignupButton/>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <main class="main">
-      <div class="content-container">
-        <div class="card-header">
-         <h2>How It Works</h2>
-          <hr />
-        </div>
-        <div class="card">
-          <div class="hiw">
-            <div class="item-third">
-              <h3>1. Sign Up</h3>
-              <p>Sign up and submit a song that you would like to cover.</p>
-            </div>
-            <div class="item-third">
-              <h3>2. Select</h3>
-              <p>
+      <main className="main">
+        <div className="content-container">
+          <div className="card-header">
+            <h2>How It Works</h2>
+            <hr />
+          </div>
+          <div className="card">
+            <div className="hiw">
+              <div className="item-third">
+                <h3>1. Sign Up</h3>
+                <p>Sign up and submit a song that you would like to cover.</p>
+              </div>
+              <div className="item-third">
+                <h3>2. Select</h3>
+                <p>
                   Vote for the song that all participants will cover as a
                   community.
               </p>
-            </div>
-            <div class="item-third">
-              <h3>3. Submit</h3>
-              <p>
+              </div>
+              <div className="item-third">
+                <h3>3. Submit</h3>
+                <p>
                   Submit your cover and celebrate with a virtual listening party.
               </p>
+              </div>
+            </div>
+            <p className="hiw">
+              {currentProjectOverviewBlurb}
+          </p>
+            <div className="button-container">
+              <Link to={general_info_slug} id="learn">
+                <button>Learn More</button>
+              </Link>
+              <button>
+                <a href="#listen">Listen</a>
+              </button>
+              <SignupButton/>
             </div>
           </div>
-          <p class="hiw">
-              Round 6 signups are currently underway and will close December 14th,
-              2020.
-          </p>
-          <div class="button-container">
-           <Link to={general_info_slug} id="learn"> 
-              <button>Learn More</button>  
-          </Link>
-            <button>
-              <a href="#listen">Listen</a>
-            </button>
-            <button class="button-primary">Sign Up</button>
+          <div className="card-header">
+            <h2><a id="listen">Community Covers</a></h2>
+            <hr />
           </div>
+          {roundPosts.map(node => {
+            return (
+              <RoundDisplay
+                key={node.fields.slug}
+                post={node}
+              />
+            )
+          })}
         </div>
-        <div class="card-header">
-          <h2><a id="listen">Community Covers</a></h2>
-          <hr />
-        </div>
-        {roundPosts.map(node =>{
-          
-          return (
-            <RoundDisplay
-            key={node.fields.slug}
-            post={node}
-            />
-          )
-        })}
-      </div>
-    </main>
+      </main>
 
-    <footer class="footer">
-      <div class="button-container">
-        <button class="button-primary">Sign Up</button>
-      </div>
-    </footer>
-  </Layout >
+      <footer className="footer">
+        <div className="button-container">
+        <SignupButton/>
+        </div>
+      </footer>
+    </Layout >
   )
 }
 

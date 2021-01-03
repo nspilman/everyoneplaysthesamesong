@@ -7,12 +7,18 @@ import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
+    query {
+      allState {
+    edges {
+      node {
+        id
+        currentPhase
+        mailingList
+        signupSheet
+        Round
       }
+    }
+  }
     }
   `)
 
