@@ -6,9 +6,8 @@ import Layout from "../components/layout"
 
 import formattedDateString from "../utilities/formattedDateString"
 
-export default function Template({
-  data, pageContext
-}) {
+export default function Template(props) {
+  const {data, pageContext} = props;
   const { markdownRemark } = data 
   const { frontmatter, html } = markdownRemark
 

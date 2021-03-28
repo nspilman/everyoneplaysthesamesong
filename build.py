@@ -25,7 +25,8 @@ for post in blogposts:
         tagsIndex = lines.index('tags:')
         publishedIndex = lines.index('published: true')
         tags = lines[tagsIndex:publishedIndex]
-        if(tags.index('- everyonePlaysTheSameSong') > 1):
+        print(tags)
+        if(tags.index('- everyonePlaysTheSameSong') > -1):
             eptss = True
     except:
         pass
