@@ -1,10 +1,16 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const axios = require(`axios`)
 
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
   const { createNode } = actions
 
-  const { data } = await axios.get("https://pioneer-django.herokuapp.com/eptss/state") 
+  const { data } = await axios.get(
+    "https://pioneer-django.herokuapp.com/eptss/state"
+  )
   const nodeContent = JSON.stringify(data)
 
   const nodeMeta = {
@@ -15,8 +21,8 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
       type: `State`,
       mediaType: `text/html`,
       content: nodeContent,
-      contentDigest: createContentDigest(data)
-    }
+      contentDigest: createContentDigest(data),
+    },
   }
 
   const node = Object.assign({}, await data, nodeMeta)
@@ -25,24 +31,28 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 
 exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if(!node.frontmatter){
+  if (!node.frontmatter) {
     return
   }
 
-  const eptss_tag = node.frontmatter.tags.find(tag => tag.includes('eptss'))
-  if (eptss_tag != `eptss-main`){
+  const eptss_tag = node.frontmatter.tags.find(tag => tag.includes("eptss"))
+  if (eptss_tag != `eptss-main`) {
     const round = eptss_tag.slice(-1)
-    const { data } = await axios.get(`https://pioneer-django.herokuapp.com/eptss/${round}`)
-    createNodeField({
-      node,
-      name: `playlist`,
-      value: data[0].playlist,
-    })
-    createNodeField({
-      node,
-      name: `song`,
-      value: data[0].title,
-    })
+    const { data } = await axios.get(
+      `https://pioneer-django.herokuapp.com/eptss/${round}`
+    )
+    if (data[0]) {
+      createNodeField({
+        node,
+        name: `playlist`,
+        value: data[0].playlist || "",
+      })
+      createNodeField({
+        node,
+        name: `song`,
+        value: data[0].title,
+      })
+    }
   }
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -55,46 +65,46 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ actions, graphql, reporter}) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.tsx`)
 
   const rounds = await graphql(`
-      {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          limit: 1000
-        ) {
-          edges {
-            next{
-              frontmatter{
-                title
-              }
-              fields{
-                slug
-              }
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          next {
+            frontmatter {
+              title
             }
-            previous{
-              frontmatter{
-                title
-              }
-              fields{
-                slug
-              }
-            }
-            node {
             fields {
-                slug
+              slug
             }
-              frontmatter {
-                title
-                tags
-              }
+          }
+          previous {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              tags
             }
           }
         }
       }
-    `)
+    }
+  `)
   // Handle errors
   if (rounds.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
