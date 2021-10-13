@@ -37,10 +37,13 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
 
   const eptss_tag = node.frontmatter.tags.find(tag => tag.includes("eptss"))
   if (eptss_tag != `eptss-main`) {
-    const round = eptss_tag.slice(-1)
+    const round = eptss_tag.split("-")[1]
     const { data } = await axios.get(
       `https://pioneer-django.herokuapp.com/eptss/${round}`
     )
+
+    console.log(round)
+
     if (data[0]) {
       createNodeField({
         node,
