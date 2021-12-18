@@ -34,37 +34,40 @@ exports.onCreateNode = async ({ node, getNode, actions }) => {
   if (!node.frontmatter) {
     return
   }
+  try {
+    const eptss_tag = node.frontmatter.tags.find(tag => tag.includes("eptss"))
+    if (eptss_tag != `eptss-main`) {
+      const round = eptss_tag.split("-")[1]
+      const { data } = await axios.get(
+        `https://pioneer-django.herokuapp.com/eptss/${round}`
+      )
 
-  const eptss_tag = node.frontmatter.tags.find(tag => tag.includes("eptss"))
-  if (eptss_tag != `eptss-main`) {
-    const round = eptss_tag.split("-")[1]
-    const { data } = await axios.get(
-      `https://pioneer-django.herokuapp.com/eptss/${round}`
-    )
+      console.log(round)
 
-    console.log(round)
+      if (data[0]) {
+        createNodeField({
+          node,
+          name: `playlist`,
+          value: data[0].playlist || "",
+        })
+        createNodeField({
+          node,
+          name: `song`,
+          value: data[0].title,
+        })
+      }
+    }
 
-    if (data[0]) {
+    if (node.internal.type === `MarkdownRemark`) {
+      const slug = createFilePath({ node, getNode, basePath: `pages` })
       createNodeField({
         node,
-        name: `playlist`,
-        value: data[0].playlist || "",
-      })
-      createNodeField({
-        node,
-        name: `song`,
-        value: data[0].title,
+        name: `slug`,
+        value: slug,
       })
     }
-  }
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
+  } catch (e) {
+    console.log({ e })
   }
 }
 
